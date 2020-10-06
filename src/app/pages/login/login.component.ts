@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit {
   login(form?:NgForm)
   {
     this.clearErrorMessage();
-    let data = Object.assign({}, form.value);//length özelliğine sahip olması için object assign kullandık.
-    console.log("form", form.value);
+    let data = Object.assign({}, form.value);
+ 
     if (this.validateForm(data.email, data.password)){
       this.authService.loginWithEmail(data.email, data.password)
         .then(() => {
