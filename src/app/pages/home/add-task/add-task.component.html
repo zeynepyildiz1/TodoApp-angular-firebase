@@ -1,0 +1,39 @@
+<h1 class="display-4">To Do App</h1>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+<div class="form-row align-items-center">
+
+<div class="col-sm-4 my-1"  >
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="crudService.formData.id" >
+  
+  <input type="text" name="task" #task="ngModel" [(ngModel)]="crudService.formData.task" class="form-control " placeholder="Task" required>
+<div *ngIf="task.invalid&&task.touched" class="validation-error">This field is required.</div>
+</div>
+
+<div class="col-sm-3 mx-5 my-1"  >
+  
+  <input type="date" name="date" #date="ngModel" [(ngModel)]="crudService.formData.date" class="form-control">
+</div>
+
+<div class="col-auto ">
+  <div class="form-check">
+    <input name="state" #state="ngModel" [(ngModel)]="crudService.formData.state" type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label " for="exampleCheck1">State</label>
+  </div>
+</div>
+
+
+<div class="col-auto my-1 mx-5"  >
+ <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-lg btn-block">Submit</button>
+</div>
+</div>
+</form>
+
+
+
+
+
+
+
+
+
+

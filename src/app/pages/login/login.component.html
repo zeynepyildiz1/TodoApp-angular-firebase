@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row justify-content-center p-4">
+        
+        <div class="col-md-5">
+            <form  #form="ngForm" (ngSubmit)="login(form)">
+            <h3 class="display-4 text-center">Login</h3>
+            <div class="form-group p-2">
+                <input type="text" name="email" class="form-control" ngModel  placeholder="sample@sample.com" required>
+                
+        </div>
+        <div class="form-group p-2">
+            <input type="password" name="password" class="form-control" ngModel  placeholder="******" required>
+        </div>
+        <div *ngIf="errorMessage.length > 0 || error.message.length > 0" class="form-group p-2 text-center">
+            <div *ngIf="errorMessage.length > 0" class="text-danger">
+                {{errorMessage}}</div>
+        
+            <div *ngIf="error.message.length > 0" class="text-danger">
+                {{error.message}} </div>
+        </div>
+        <div class="form-group p-2 text-center">
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Login</button>
+            <div class="my-2"><a href="#" routerLink="/register">New User Register</a></div>
+        </div>
+        </form>
+        
+        </div>
+        
+    </div>
+</div>
